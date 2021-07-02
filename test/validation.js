@@ -33,7 +33,7 @@ describe('Validator', () => {
   describe('/GET key', () => {
     it('it should Generate authorization key', done => {
       chai.request(server)
-        .get('/api/generate_key')
+        .get('/api/generate-key')
         .end((err, res) => {
           res.should.have.status('202');
           done();
@@ -47,7 +47,7 @@ describe('Validator', () => {
   describe('/Validate payment', () => {
     it('it should successfully validate payment ', done => {
       chai.request(server)
-        .post('/api/validate_payment')
+        .post('/api/validate-payment')
         .send(data)
         .set('token', 'dGVzdC1iaTEzYjRpYjczNTc=')
         .end((err, res) => {
@@ -63,7 +63,7 @@ describe('Validator', () => {
   describe('/Failed authorization token', () => {
     it('it should fail authorization ', done => {
       chai.request(server)
-        .post('/api/validate_payment')
+        .post('/api/validate-payment')
         .send(data)
         .end((err, res) => {
           res.should.have.status(401);
