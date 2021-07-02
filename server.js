@@ -11,7 +11,7 @@ const server = http.createServer((req, res) => {
         return
     } else if(req.url === '/api/validate-payment' && req.method === 'POST') {
         validate_payment(req, res);
-    } else if(req.url === '/api/validate-card' && req.method === 'POST') {
+    } else if(req.url === '/api/verify-card' && req.method === 'POST') {
         validateCard(req, res);
     } else {
         sendError(res, '', 'Route Not Found', 404)
