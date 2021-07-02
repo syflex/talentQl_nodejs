@@ -5,15 +5,15 @@ const { getRequestData,validate_card, card_provider,sendSuccess,sendError,valida
 // @route   POST /api/validate_card
 async function validateCard(req, res) {   
 
-    try {
+    try {        
         const body = await getRequestData(req);
-        const { credit_card_number } = JSON.parse(body);
-
-        const validateions = validate_input(JSON.parse(body))
-        if (Object.keys(validateions).length) {
-            sendError(res, validateions, 'validation error', 400);
+        const validations = validate_input(JSON.parse(body))
+        if (Object.keys(validations).length) {
+            sendError(res, validations, 'validation error', 400);
         } 
 
+        
+        const { credit_card_number } = JSON.parse(body);
         const card_status = `${validate_card(credit_card_number)}`;
         const data = { 
             valid: card_status,
@@ -32,16 +32,13 @@ async function validateCard(req, res) {
 // @route   POST /api/validate_payment
 async function validate_payment(req, res) {
     try {
-
-        const body = await getRequestData(req)
-        const { credit_card_number } = JSON.parse(body)
-
-        const validateions = validate_input(JSON.parse(body))
-
-        if (Object.keys(validateions).length) {
-            sendError(res, validateions, 'validation error', 400);
+        const body = await getRequestData(req)  
+        const validations = validate_input(JSON.parse(body))
+        if (Object.keys(validations).length) {
+            sendError(res, validations, 'validation error', 400);
         } 
 
+        const { credit_card_number } = JSON.parse(body)
         const card_status = `${validate_card(credit_card_number)}`;
         const data = { 
             valid: card_status,

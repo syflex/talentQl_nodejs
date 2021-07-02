@@ -91,7 +91,7 @@ function sendError(res, data, message, error_code = 401){
 
 function  validate_input(params) {
     const errors = {};
-
+    
     for (const property in params) {
         if (!String(params[property]).trim()) {
             errors[property] = property +' is required';
