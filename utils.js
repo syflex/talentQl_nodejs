@@ -71,7 +71,7 @@ function authorization(res,token){
     }
 }
 
-function sendSuccess(res, status, data, message, code='202'){
+function sendSuccess(res, status, data, message, code='200'){
     res.writeHead(code, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ 
         status: status,

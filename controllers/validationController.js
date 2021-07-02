@@ -51,7 +51,7 @@ async function validate_payment(req, res) {
         const status = card_status === 'true' ? 'success' : 'failed';
         const message = card_status === 'true' ? 'Valide Card' : 'Invalide card';
 
-        sendSuccess(res, status, data, message, 202)
+        sendSuccess(res, status, data, message)
 
     } catch (error) {
         sendError(res, '', 'internal server error', 500);

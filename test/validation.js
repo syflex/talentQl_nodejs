@@ -35,7 +35,7 @@ describe('Validator', () => {
       chai.request(server)
         .get('/api/generate-key')
         .end((err, res) => {
-          res.should.have.status('202');
+          res.should.have.status(200);
           done();
         });
     });
