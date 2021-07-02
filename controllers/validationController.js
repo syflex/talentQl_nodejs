@@ -16,7 +16,7 @@ async function validateCard(req, res) {
 
         const card_status = `${validate_card(credit_card_number)}`;
         const data = { 
-            valide_card: card_status,
+            valid: card_status,
             card_type: `${card_provider(credit_card_number.charAt(0), card_status)}`,
         }
         const status = card_status === 'true' ? 'success' : 'failed';
@@ -44,7 +44,7 @@ async function validate_payment(req, res) {
 
         const card_status = `${validate_card(credit_card_number)}`;
         const data = { 
-            valide_card: card_status,
+            valid: card_status,
             card_type: `${card_provider(credit_card_number.charAt(0),card_status)}`,
         }
 
