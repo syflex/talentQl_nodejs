@@ -63,7 +63,7 @@ function card_provider(card_number, valide_card) {
 }
 
 function authorization(res,token){
-    if (validate_key(token)) {
+    if (token && validate_key(token)) {
         return true
     }else{
         sendError(res, '', 'Unauthorized', 401);
