@@ -9,10 +9,10 @@ const server = http.createServer((req, res) => {
         getToken(req, res);
     }else if (!authorization(res, req.headers.token)) {
         return
-    }else if(req.url === '/api/validate-card' && req.method === 'POST') {
-        validateCard(req, res);
     } else if(req.url === '/api/validate-payment' && req.method === 'POST') {
         validate_payment(req, res);
+    } else if(req.url === '/api/validate-card' && req.method === 'POST') {
+        validateCard(req, res);
     } else {
         sendError(res, '', 'Route Not Found', 404)
     }    
